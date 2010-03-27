@@ -19,17 +19,20 @@ data JValue
     deriving (Eq, Ord, Show)
 
 getString :: JValue -> Maybe String
-getString JString s = Just s
+getString (JString s) = Just s
 getString _ = Nothing
 
 getBool :: JValue -> Maybe Bool
-getBool JBool b = Just b
+getBool (JBool b) = Just b
 getBool _ = Nothing
 
 getDouble :: JValue -> Maybe Double
-getDouble JNumber d = Just d
+getDouble (JNumber d) = Just d
 getDouble _ = Nothing
 
+getInt :: JValue -> Maybe Int
+getInt (JNumber i) = Just (truncate i)
+getInt _ = Nothing
 -- copypaste
 getObject (JObject o) = Just o
 getObject _           = Nothing
