@@ -1,5 +1,14 @@
-module SimpleJSON where
-
+module SimpleJSON (
+                  JValue (..)
+                  , getString
+                  , getInt
+                  , getDouble
+                  , getBool
+                  , getObject
+                  , getArray
+                  , isNull
+                  ) where
+                      
 data JValue 
     = JString String
     | JBool Bool
@@ -21,6 +30,11 @@ getDouble :: JValue -> Maybe Double
 getDouble JNumber d = Just d
 getDouble _ = Nothing
 
+-- copypaste
+getObject (JObject o) = Just o
+getObject _           = Nothing
 
+getArray (JArray a) = Just a
+getArray _          = Nothing
 
-
+isNull v            = v == JNull
