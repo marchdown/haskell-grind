@@ -1,0 +1,13 @@
+Name:			haq
+Version:		0.0
+Description:		Empty shell of a haskell project
+License:		None
+License-file:		/dev/null
+Author:			Hivemind
+Maintaner:		None
+Build-Type:		Simple
+Cabal-Version:		>=1.2
+
+Executable haq-exe
+  Main-is:		Haq.hs
+  Build-Depends:	base >= 5 && < 18	   	
